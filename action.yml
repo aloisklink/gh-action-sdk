@@ -25,8 +25,8 @@ runs:
           --env NO_SHFMT_CHECK \
           --env PACKAGES \
           --env V \
-          -v ${{ steps.inputs.outputs.artifacts_dir }}:/artifacts \
-          -v ${{ steps.inputs.outputs.feed_dir }}:/feed \
+          -v ${{ steps.inputs.outputs.artifacts_dir }}:/artifacts:U \
+          -v ${{ steps.inputs.outputs.feed_dir }}:/feed:U \
           sdk
       shell: bash
     - run: sudo chown -R --reference=${{ steps.inputs.outputs.artifacts_dir }}/.. ${{ steps.inputs.outputs.artifacts_dir }}
